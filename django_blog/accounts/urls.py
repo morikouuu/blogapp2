@@ -8,6 +8,7 @@ urlpatterns = [
     path('signup/', views.SignUpView.as_view(), name='signup'),
     path('profile/',views.ProfileView.as_view(), name ='profile'),
     path('author/<int:pk>/',views.AuthorView.as_view(),name = 'author'),
+    path('update/<int:pk>',views.UpdateView.as_view(), name ='update')
    
 ]
 if settings.DEBUG:

@@ -44,6 +44,7 @@
     <div class="button-section">
         <a href="{% url 'logout' %}">ログアウト</a>
         <a href="{% url 'blogs:index' %}" >トップページに戻る</a>
+        <a href="{% url 'accounts:update' pk=request.user.pk%}">プロフィール編集</a>
     </div>
 </div>
 {% endblock %}

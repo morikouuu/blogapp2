@@ -6,6 +6,7 @@ from .forms import CustomUserCreationForm
 from .models import CustomUser
 from blogs.models import Blog
 from blogs.models import Likes
+from django.views.generic  import UpdateView
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.shortcuts import get_object_or_404
 class SignUpView(generic.CreateView):
@@ -44,3 +45,10 @@ class AuthorView(generic.DetailView):
         context = super().get_context_data(**kwargs)
         context['blogs'] = Blog.objects.filter(author=self.get_object())
         return context
+
+class UpdateView(UpdateView):
+    model = CustomUser
+    fields = ['username', 'email', 'profile', 'introduction']
+    template_name = 'accounts/form.html'
+    def get_success_url(self):
+        return reverse_lazy('accounts:profile')
