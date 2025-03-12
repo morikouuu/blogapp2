@@ -6,9 +6,10 @@ from .forms import CustomUserCreationForm
 from .models import CustomUser
 from blogs.models import Blog
 from blogs.models import Likes
-from django.views.generic  import UpdateView
+from django.views.generic  import UpdateView,TemplateView
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.shortcuts import get_object_or_404
+
 class SignUpView(generic.CreateView):
     form_class = CustomUserCreationForm
     success_url = reverse_lazy('login')
@@ -52,3 +53,8 @@ class UpdateView(UpdateView):
     template_name = 'accounts/form.html'
     def get_success_url(self):
         return reverse_lazy('accounts:profile')
+
+
+class LoggedoutconfirmView(LoginRequiredMixin, TemplateView):
+    
+    template_name = "accounts/logged_out_confirm.html"

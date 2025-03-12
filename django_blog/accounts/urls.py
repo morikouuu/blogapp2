@@ -8,7 +8,8 @@ urlpatterns = [
     path('signup/', views.SignUpView.as_view(), name='signup'),
     path('profile/',views.ProfileView.as_view(), name ='profile'),
     path('author/<int:pk>/',views.AuthorView.as_view(),name = 'author'),
-    path('update/<int:pk>',views.UpdateView.as_view(), name ='update')
+    path('update/<int:pk>',views.UpdateView.as_view(), name ='update'),
+    path('logged_out_confirm/',views.LoggedoutconfirmView.as_view(),name='logged_out_confirm'),
    
 ]
 if settings.DEBUG:
