@@ -1,0 +1,18 @@
+<h1>ログアウト</h1>
+<p>ログアウトしますか</p>
+
+    <form action="{% url 'logout' %}" method="post" class="d-inline">
+        {% csrf_token %}
+        <button
+            type="submit"
+            class="nav-link text-light" 
+            name="logout"
+        >
+            Logout
+        </button>
+    </form>
+
+
+<div>
+	<p><a href="JavaScript:history.back()">&lt; 戻る</a></p>
+</div>
